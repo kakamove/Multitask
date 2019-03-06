@@ -46,14 +46,6 @@ class UseTimeItem: NSObject {
             timer?.invalidate()
             timer = nil
         }
-        
-        // developer上面做了修改
-<<<<<<< HEAD
-        // Master上面做了修改
-=======
-        
-        //developer 上做了修改
->>>>>>> develop
     }
     
     func start() {
