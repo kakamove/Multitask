@@ -58,12 +58,4 @@ extension TestTask {
             complate()
         }
     }
-    
-    // 我在master分支上做了改变
 }
-
-
-// 我在developer分支做了一个改变
-
-
-// 我又又在developer上做了改变
