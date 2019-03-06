@@ -1,17 +1,11 @@
-//
-//  ExportTaskChain.swift
-//  WSVEOnline
-//
-//  Created by  on 2019/2/26.
-//  Copyright © 2019 wangxiaoyan. All rights reserved.
-//
+
 
 import Cocoa
 
 /// 任务链条，需要将任务链有序放入,双向链,各个任务是前后依赖关系。
-class ExportTaskChain: NSObject {
+class KAKAMoveTaskChain: NSObject {
     
-    private var tasks: [ExportTask]?
+    private var tasks: [KAKAMoveTask]?
 
     weak var taskTree: KAKAMoveTaskTree?
     var previousTaskChainsInfor: Any? {
@@ -30,7 +24,7 @@ class ExportTaskChain: NSObject {
     }
     
     /// 任务链中活跃的任务
-    var activeTask: ExportTask? {
+    var activeTask: KAKAMoveTask? {
         // 找到任务链中活跃的任务后暂停它
         guard let task = tasks else {
             return nil
@@ -60,11 +54,11 @@ class ExportTaskChain: NSObject {
     
     var isActive = false
     
-    init(tasks truples: [(task: ExportTask,weight: Float)]) {
+    init(tasks truples: [(task: KAKAMoveTask,weight: Float)]) {
         for taskTruple in truples {
             taskTruple.0.weight = taskTruple.1
         }
-        let tasks = truples.map { (taskTruple) -> ExportTask in
+        let tasks = truples.map { (taskTruple) -> KAKAMoveTask in
             taskTruple.0
         }
         self.tasks = tasks
@@ -98,7 +92,7 @@ class ExportTaskChain: NSObject {
     ///   - progress: 某个任务的进度
     ///   - task: 单个任务
     ///   - 和进度相关的图像信息等
-    func calculateChainProgress(with task: ExportTask, progress: Float, information: [AnyHashable:Any]? = nil) {
+    func calculateChainProgress(with task: KAKAMoveTask, progress: Float, information: [AnyHashable:Any]? = nil) {
         guard let tasks = tasks else {
             return
         }

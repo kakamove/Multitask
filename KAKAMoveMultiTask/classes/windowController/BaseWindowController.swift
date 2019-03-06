@@ -30,6 +30,11 @@ class BaseWindowController: NSWindowController,NSWindowDelegate {
     
     
     @IBAction func start(_ sender: NSButton) {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(recvAllProgressDidChanged(_:)), name: NSNotification.Name.AllProgressDidChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(recvAllProgressDidEnd(_:)), name: NSNotification.Name.AllProgressDidEnd, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(recvSubProgressDidChanged(_:)), name: NSNotification.Name.SubProgressDidChanged, object: nil)
+        
         taskTree?.start()
         sender.isEnabled = false
     }
@@ -43,22 +48,24 @@ class BaseWindowController: NSWindowController,NSWindowDelegate {
         if let progress = notifi.object as? CGFloat {
             progressBar.doubleValue = Double(progress)
             allProgress.stringValue = "All:" + " \(Int(progress))" + "%"
+            if let activeTask = taskTree?.activeChian?.activeTask as? TestTask {
+                subProgress.stringValue = activeTask.taskName + ": " + "\(Int(activeTask.progress.value))" + "%"
+            }
         }
     }
     
     @objc func recvAllProgressDidEnd(_ notifi: Notification) {
         startButton.isEnabled = true
-        taskTree = nil
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AllProgressDidEnd, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AllProgressDidChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.SubProgressDidChanged, object: nil)
     }
     
     @objc func recvSubProgressDidChanged(_ notifi: Notification) {
-        if let progress = notifi.object as? CGFloat {
-            let taskName = taskTree?.activeChian?.activeTask?.className.components(separatedBy: ".").last ?? ""
-            subProgress.stringValue = "\(taskName):" + " \(Int(progress))" + "%"
-        }
+//        if let progress = notifi.object as? CGFloat {
+//            let taskName = taskTree?.activeChian?.activeTask?.className.components(separatedBy: ".").last ?? ""
+//            subProgress.stringValue = "\(taskName):" + " \(Int(progress))" + "%"
+//        }
     }
     
     override var windowNibName: NSNib.Name? {
@@ -67,15 +74,16 @@ class BaseWindowController: NSWindowController,NSWindowDelegate {
 
     override func windowDidLoad() {
         super.windowDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(recvAllProgressDidChanged(_:)), name: NSNotification.Name.AllProgressDidChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(recvAllProgressDidEnd(_:)), name: NSNotification.Name.AllProgressDidEnd, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(recvSubProgressDidChanged(_:)), name: NSNotification.Name.SubProgressDidChanged, object: nil)
         
         setupUI()
         
     }
     
     func windowWillClose(_ notification: Notification) {
+        taskTree = nil
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AllProgressDidEnd, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AllProgressDidChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.SubProgressDidChanged, object: nil)
         NSApp.abortModal()
         window?.orderOut(nil)
     }

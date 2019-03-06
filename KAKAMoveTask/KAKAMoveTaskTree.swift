@@ -17,11 +17,11 @@ extension NSNotification.Name {
 
 class KAKAMoveTaskTree: NSObject {
     
-    var main:  ExportTaskChain
-    var right: ExportTaskChain?
-    var left:  ExportTaskChain?
+    var main:  KAKAMoveTaskChain
+    var right: KAKAMoveTaskChain?
+    var left:  KAKAMoveTaskChain?
     
-    var activeChian: ExportTaskChain? {
+    var activeChian: KAKAMoveTaskChain? {
         if main.isActive {
             return main
         }
@@ -41,17 +41,14 @@ class KAKAMoveTaskTree: NSObject {
     }
     var progress: (value:Float,information: [AnyHashable: Any]?) = (0,nil) {
         didSet {
-            // 发通知要回到主线程
-            DispatchQueue.global().async { // 又包了一层，二次上传不包这一层进不来。。。。。
-                DispatchQueue.main.async {
-                    print("___ Task progress value = \(self.progress.value)")
-                    NotificationCenter.default.post(name: NSNotification.Name.AllProgressDidChanged,
-                                                    object: CGFloat(self.progress.value),
-                                                    userInfo: self.progress.1)
-                }
-            }
+            
+            print("___ Task progress value = \(self.progress.value)")
+            NotificationCenter.default.post(name: NSNotification.Name.AllProgressDidChanged,
+                                            object: CGFloat(self.progress.value),
+                                            userInfo: self.progress.1)
         }
     }
+
     var isFinished: Bool = false {
         didSet {
             if isFinished {
@@ -60,11 +57,11 @@ class KAKAMoveTaskTree: NSObject {
         }
     }
     
-    init(main mainChain :ExportTaskChain,
+    init(main mainChain :KAKAMoveTaskChain,
          weight mainWeight: Float = 1,
-         left leftChian:ExportTaskChain? = nil,
+         left leftChian:KAKAMoveTaskChain? = nil,
          weight leftWeight: Float? = nil,
-         right rightChian: ExportTaskChain? = nil,
+         right rightChian: KAKAMoveTaskChain? = nil,
          weight rightWeight: Float? = nil) {
         
         self.main  = mainChain
@@ -99,7 +96,7 @@ class KAKAMoveTaskTree: NSObject {
         activeChian?.cancle()
     }
     
-    func oneChainDidFinished(_ chian: ExportTaskChain) {
+    func oneChainDidFinished(_ chian: KAKAMoveTaskChain) {
         if chian === main {
             output = main.output
         }
@@ -112,7 +109,7 @@ class KAKAMoveTaskTree: NSObject {
         }
     }
     
-    func calculateTreeProgress(with task: ExportTaskChain, progress: Float, information: [AnyHashable:Any]? = nil) {
+    func calculateTreeProgress(with task: KAKAMoveTaskChain, progress: Float, information: [AnyHashable:Any]? = nil) {
         var progressValue: Float = 0
         if task === left {
             progressValue = progress*(left?.weightInTree ?? 0)

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-enum ExportTaskType {
+enum KAKAMoveTaskType {
     case DVDMenu
     case ISOToDVD
     case TSFolderToDVDMdeia
@@ -19,31 +19,31 @@ enum ExportTaskType {
     case VideoToTimeLine
 }
 
-protocol ExportTaskDelegate: class {
+protocol KAKAMoveTaskDelegate: class {
     
     /// 任务完成后的产出
     ///
     /// - Parameter task: task
     /// - Returns: 任务产出 比如一个视频路径
-    func taskOutput(_ task: ExportTask) -> Any?
+    func taskOutput(_ task: KAKAMoveTask) -> Any?
     
     /// 准备任务 和 开始任务
     ///
     /// - Parameter task: TaskBase
-    func prepareAndStartTask(_ task: ExportTask)
+    func prepareAndStartTask(_ task: KAKAMoveTask)
 
-    func puaseTask(_ task: ExportTask)
-    func resumeTask(_ task: ExportTask)
-    func cancleTask(_ task: ExportTask)
+    func puaseTask(_ task: KAKAMoveTask)
+    func resumeTask(_ task: KAKAMoveTask)
+    func cancleTask(_ task: KAKAMoveTask)
 }
 
-class ExportTask: NSObject {
-    var taskType: ExportTaskType = .TimelineToVideo
+class KAKAMoveTask: NSObject {
+    var taskType: KAKAMoveTaskType = .TimelineToVideo
     
-    weak var delegate: ExportTaskDelegate?
+    weak var delegate: KAKAMoveTaskDelegate?
     
     /// 这个任务依赖的任务: 上传任务的previousTask是本地视频生成任务；和nextTask对应
-    weak var previousTask: ExportTask?{
+    weak var previousTask: KAKAMoveTask?{
         didSet{
             previousTask?.nextTask = self
         }
@@ -52,7 +52,7 @@ class ExportTask: NSObject {
     var previousTaskInfor: Any?
     
     /// 进行完这个任务的下一个任务：本地视频生成任务的nextTask可能是上传任务；和previousTask对应
-    var nextTask: ExportTask?
+    var nextTask: KAKAMoveTask?
 
     /// 此任务是否是活跃状态
     var isActive = false {
@@ -76,7 +76,7 @@ class ExportTask: NSObject {
     
     
     /// 这个任务所在的任务链
-    weak var taskChain: ExportTaskChain?
+    weak var taskChain: KAKAMoveTaskChain?
     /// 这个任务如果有两个子链的话： 要拿着两个子链产出的合集开始
     var previousTaskChainsInfor: Any?
     
