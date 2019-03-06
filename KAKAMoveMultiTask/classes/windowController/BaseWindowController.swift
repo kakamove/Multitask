@@ -80,7 +80,8 @@ class BaseWindowController: NSWindowController,NSWindowDelegate {
     }
     
     func windowWillClose(_ notification: Notification) {
-        taskTree = nil
+        
+        
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AllProgressDidEnd, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AllProgressDidChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.SubProgressDidChanged, object: nil)

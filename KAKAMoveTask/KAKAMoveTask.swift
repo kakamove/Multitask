@@ -83,9 +83,9 @@ class KAKAMoveTask: NSObject {
     var isCanPause: Bool  = true
     var isCanCancel: Bool = true
     
-    deinit {
-        print(String(describing: self.className.components(separatedBy: ".").last!) + "  deinit")
-    }
+//    deinit {
+//        print(String(describing: self.className.components(separatedBy: ".").last!) + "  deinit")
+//    }
     
     //MARK: - Start And End
     //必须在开始任务前调用此方法

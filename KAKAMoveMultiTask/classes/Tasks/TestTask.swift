@@ -20,21 +20,23 @@ class TestTask: KAKAMoveTask,KAKAMoveTaskDelegate {
     
     func prepareAndStartTask(_ task: KAKAMoveTask) {
         useTimeItem = UseTimeItem()
+        
+        weak var weakSelf = self
         useTimeItem?.progressMenuHandler = { progress in
-            self.progress(progress)
+            weakSelf?.progress(progress)
         }
         useTimeItem?.start()
     }
     
     func puaseTask(_ task: KAKAMoveTask) {
     }
-    
     func resumeTask(_ task: KAKAMoveTask) {
     }
-    
     func cancleTask(_ task: KAKAMoveTask) {
     }
-    
+    deinit {
+        print(String(describing: self.className.components(separatedBy: ".").last!) + "  deinit")
+    }
     
     override init() {
         super.init()

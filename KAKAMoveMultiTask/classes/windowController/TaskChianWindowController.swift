@@ -34,12 +34,12 @@ class TaskChianWindowController: BaseWindowController {
         task4.taskName = "task4"
         task5.taskName = "task5"
         task6.taskName = "task6"
-        let taskChain = KAKAMoveTaskChain(tasks: [(task: task1, weight: 0.1),
-                                                  (task: task2, weight: 0.2),
-                                                  (task: task3, weight: 0.3),
-                                                  (task: task4, weight: 0.2),
-                                                  (task: task5, weight: 0.1),
-                                                  (task: task6, weight: 0.1)])
+        let taskChain = KAKAMoveTaskChain(tasks: [(task: task6, weight: 0.1),
+                                                  (task: task5, weight: 0.2),
+                                                  (task: task4, weight: 0.3),
+                                                  (task: task3, weight: 0.2),
+                                                  (task: task2, weight: 0.1),
+                                                  (task: task1, weight: 0.1)])
         taskTree = KAKAMoveTaskTree(main: taskChain)
     }
 

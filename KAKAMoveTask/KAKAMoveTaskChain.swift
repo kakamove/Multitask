@@ -69,6 +69,12 @@ class KAKAMoveTaskChain: NSObject {
     
     deinit {
         print("Export TaskChian deinit")
+        
+        for task in tasks ?? [] {
+            (task as? TestTask)?.useTimeItem?.timer?.invalidate()
+            (task as? TestTask)?.useTimeItem?.timer = nil
+            
+        }
         tasks = nil
     }
     
