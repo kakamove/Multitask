@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="BaseWindowController" customModule="KAKAMoveMultiTask" customModuleProvider="target">
+            <connections>
+                <outlet property="allProgress" destination="uq8-Bt-UqS" id="M6Y-vB-0mW"/>
+                <outlet property="progressBar" destination="yHF-dI-Feo" id="0UY-CW-yE2"/>
+                <outlet property="startButton" destination="DvE-Bp-uml" id="pEg-bC-uk5"/>
+                <outlet property="subProgress" destination="n7o-Fb-jCF" id="FgJ-I0-7hk"/>
+                <outlet property="taskChian" destination="nLo-h5-Xuh" id="ip7-1B-PF9"/>
+                <outlet property="taskTree1" destination="4B0-cr-7R9" id="D6D-JO-9bG"/>
+                <outlet property="taskTree2" destination="sJf-mn-npn" id="uni-tr-O6v"/>
+                <outlet property="taskTree3" destination="lCm-bq-LJ0" id="93o-1m-vK4"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="540" height="265"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1129"/>
+            <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="540" height="265"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvE-Bp-uml">
+                        <rect key="frame" x="51" y="142" width="102" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7KF-Hc-pwx">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="start:" target="-2" id="4iM-fz-U2D"/>
+                        </connections>
+                    </button>
+                    <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="yHF-dI-Feo">
+                        <rect key="frame" x="178" y="148" width="302" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </progressIndicator>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uq8-Bt-UqS">
+                        <rect key="frame" x="176" y="180" width="165" height="17"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="all: 0%" id="Ssg-i8-63Z">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n7o-Fb-jCF">
+                        <rect key="frame" x="176" y="129" width="165" height="17"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="sub: 0%" id="LUH-Dc-TTe">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nLo-h5-Xuh">
+                        <rect key="frame" x="58" y="72" width="275" height="17"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="task1-&gt;task2-&gt;task3-&gt;task4-&gt;task5-&gt;task6" id="aSv-gK-8QF">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sJf-mn-npn">
+                        <rect key="frame" x="124" y="36" width="86" height="17"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="task3-&gt;task4" id="Pmr-e2-bQ2">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lCm-bq-LJ0">
+                        <rect key="frame" x="214" y="47" width="100" height="17"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="-&gt;task5-&gt;task6" id="zvq-97-gP0">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4B0-cr-7R9">
+                        <rect key="frame" x="125" y="54" width="84" height="17"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="task1-&gt;task2" id="UDz-vq-JFj">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+            <point key="canvasLocation" x="-109" y="-3.5"/>
+        </window>
+    </objects>
+</document>

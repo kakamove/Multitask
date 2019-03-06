@@ -13,13 +13,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
 
-
+    
+    @IBAction func showTaskChain(_ sender: Any) {
+        let chainWindowController = TaskChianWindowController()
+        if let wnd = chainWindowController.window {
+            wnd.makeKeyAndOrderFront(nil)
+            NSApp.runModal(for: wnd)
+        }
+    }
+    @IBAction func showTaskTree(_ sender: Any) {
+        
+        let treeWindowController = TaskTreeWindowController()
+        if let wnd = treeWindowController.window {
+            wnd.makeKeyAndOrderFront(nil)
+            NSApp.runModal(for: wnd)
+        }
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        
     }
 
 

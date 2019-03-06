@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7708898D222E78B2006189E3 /* KAKAMoveTaskTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7708898A222E78B2006189E3 /* KAKAMoveTaskTree.swift */; };
+		7708898E222E78B2006189E3 /* ExportTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7708898B222E78B2006189E3 /* ExportTask.swift */; };
+		7708898F222E78B2006189E3 /* ExportTaskChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7708898C222E78B2006189E3 /* ExportTaskChain.swift */; };
+		77088997222E7C2F006189E3 /* BaseWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77088995222E7C2F006189E3 /* BaseWindowController.swift */; };
+		77088998222E7C2F006189E3 /* BaseWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77088996222E7C2F006189E3 /* BaseWindowController.xib */; };
+		77088AC2222E8295006189E3 /* TaskChianWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77088AC1222E8295006189E3 /* TaskChianWindowController.swift */; };
+		77088AC4222E82AB006189E3 /* TaskTreeWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77088AC3222E82AB006189E3 /* TaskTreeWindowController.swift */; };
 		77C92A4D222D2B4B009EA511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C92A4C222D2B4B009EA511 /* AppDelegate.swift */; };
 		77C92A4F222D2B4C009EA511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77C92A4E222D2B4C009EA511 /* Assets.xcassets */; };
 		77C92A52222D2B4C009EA511 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C92A50222D2B4C009EA511 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7708898A222E78B2006189E3 /* KAKAMoveTaskTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KAKAMoveTaskTree.swift; sourceTree = "<group>"; };
+		7708898B222E78B2006189E3 /* ExportTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportTask.swift; sourceTree = "<group>"; };
+		7708898C222E78B2006189E3 /* ExportTaskChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportTaskChain.swift; sourceTree = "<group>"; };
+		77088995222E7C2F006189E3 /* BaseWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWindowController.swift; sourceTree = "<group>"; };
+		77088996222E7C2F006189E3 /* BaseWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseWindowController.xib; sourceTree = "<group>"; };
+		77088AC1222E8295006189E3 /* TaskChianWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskChianWindowController.swift; sourceTree = "<group>"; };
+		77088AC3222E82AB006189E3 /* TaskTreeWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTreeWindowController.swift; sourceTree = "<group>"; };
 		77C92A49222D2B4B009EA511 /* KAKAMoveMultiTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KAKAMoveMultiTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C92A4C222D2B4B009EA511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77C92A4E222D2B4C009EA511 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,9 +46,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77088989222E78B2006189E3 /* KAKAMoveTask */ = {
+			isa = PBXGroup;
+			children = (
+				7708898A222E78B2006189E3 /* KAKAMoveTaskTree.swift */,
+				7708898B222E78B2006189E3 /* ExportTask.swift */,
+				7708898C222E78B2006189E3 /* ExportTaskChain.swift */,
+			);
+			path = KAKAMoveTask;
+			sourceTree = "<group>";
+		};
+		77088990222E7A78006189E3 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				77088995222E7C2F006189E3 /* BaseWindowController.swift */,
+				77088996222E7C2F006189E3 /* BaseWindowController.xib */,
+				77088AC3222E82AB006189E3 /* TaskTreeWindowController.swift */,
+				77088AC1222E8295006189E3 /* TaskChianWindowController.swift */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
 		77C92A40222D2B4B009EA511 = {
 			isa = PBXGroup;
 			children = (
+				77088989222E78B2006189E3 /* KAKAMoveTask */,
 				77C92A4B222D2B4B009EA511 /* KAKAMoveMultiTask */,
 				77C92A4A222D2B4B009EA511 /* Products */,
 			);
@@ -51,6 +87,7 @@
 		77C92A4B222D2B4B009EA511 /* KAKAMoveMultiTask */ = {
 			isa = PBXGroup;
 			children = (
+				77088990222E7A78006189E3 /* classes */,
 				77C92A4C222D2B4B009EA511 /* AppDelegate.swift */,
 				77C92A4E222D2B4C009EA511 /* Assets.xcassets */,
 				77C92A50222D2B4C009EA511 /* MainMenu.xib */,
@@ -118,6 +155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77088998222E7C2F006189E3 /* BaseWindowController.xib in Resources */,
 				77C92A4F222D2B4C009EA511 /* Assets.xcassets in Resources */,
 				77C92A52222D2B4C009EA511 /* MainMenu.xib in Resources */,
 			);
@@ -130,7 +168,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77088AC4222E82AB006189E3 /* TaskTreeWindowController.swift in Sources */,
+				77088AC2222E8295006189E3 /* TaskChianWindowController.swift in Sources */,
+				7708898F222E78B2006189E3 /* ExportTaskChain.swift in Sources */,
+				77088997222E7C2F006189E3 /* BaseWindowController.swift in Sources */,
+				7708898D222E78B2006189E3 /* KAKAMoveTaskTree.swift in Sources */,
 				77C92A4D222D2B4B009EA511 /* AppDelegate.swift in Sources */,
+				7708898E222E78B2006189E3 /* ExportTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
