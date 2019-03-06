@@ -15,6 +15,8 @@ func RunCenteredModal(_ window: NSWindow?,in upperWindow: NSWindow?) {
         wnd.setFrameOrigin(origin)
         wnd.makeKeyAndOrderFront(nil)
         NSApp.runModal(for: wnd)
+        
+        // 在developer上做了改变
     }
 }
 
