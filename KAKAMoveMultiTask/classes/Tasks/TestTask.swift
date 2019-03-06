@@ -15,6 +15,7 @@ class TestTask: KAKAMoveTask,KAKAMoveTaskDelegate {
     
     
     func taskOutput(_ task: KAKAMoveTask) -> Any? {
+        // 我在Master上做了修改
         return "\(String(describing: self.className.components(separatedBy: ".").last)) output something"
     }
     
